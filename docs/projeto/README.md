@@ -1,13 +1,14 @@
 # Documentação do Projeto
 
-Documentos de planejamento gerados pelo método PDIR.
+Arquivos gerados pelo método PDIR.
 
 ```
 docs/projeto/
-├── PRD.md           # Plano geral (criado por /configurar-projeto)
+├── PRD.md           # Plano geral (criado por /pdir-criar-prd)
 ├── grupos/          # Gerados por /pdir-listar-grupos
-├── tarefas/         # Gerados por /pdir-listar-tarefas
-└── .templates/      # Templates de referência
+└── tarefas/         # Gerados por /pdir-listar-tarefas
 ```
 
-**Manual completo:** [starterkit-pdir.md](../manuais/starterkit-pdir.md)
+**Requer plugin:** `/plugin install hmaurus/pdir-workflow-plugin`
+
+**Manual:** [starterkit-pdir.md](../manuais/starterkit-pdir.md)

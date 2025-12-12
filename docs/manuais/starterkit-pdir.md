@@ -215,12 +215,14 @@ seu-projeto/
 │   ├── planejar-e-implementar.md
 │   └── servidor/
 ├── docs/
+│   ├── .templates/              # Templates do starterkit
+│   │   ├── README-template.md
+│   │   └── components.json
 │   ├── manuais/                 # Este manual
-│   └── projeto/
+│   └── projeto/                 # Arquivos gerados pelo PDIR
 │       ├── PRD.md               # Plano geral (via plugin)
-│       ├── grupos/              # Arquivos de grupos (gerados)
-│       ├── tarefas/             # Arquivos de tarefas (gerados)
-│       └── .templates/          # Templates
+│       ├── grupos/              # Lista de grupos (gerados)
+│       └── tarefas/             # Lista de tarefas (gerados)
 └── src/                         # Código (após instalar Next.js)
 ```
 

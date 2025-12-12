@@ -57,7 +57,7 @@ Substituir:
 
 #### 4.4. Substituir README.md
 
-**Substituir** o README.md da raiz pelo README do novo projeto, baseado em @docs/projeto/.templates/README-template.md com dados do projeto.
+**Substituir** o README.md da raiz pelo README do novo projeto, baseado em @docs/.templates/README-template.md com dados do projeto.
 
 #### 4.5. Gerar .env
 
