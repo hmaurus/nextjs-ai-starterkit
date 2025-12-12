@@ -103,7 +103,7 @@ git push -u origin main
   - .env
 
 Próximos passos:
-1. Instalar plugin PDIR: /plugin install pdir-workflow@hmaurus/pdir-workflow-plugin
+1. Instalar plugin PDIR: /plugin install hmaurus/pdir-workflow-plugin
 2. Criar PRD: /pdir-criar-prd "[DESCRIÇÃO]"
 3. pnpm create next-app@latest . --typescript --tailwind --app
 4. /dev-start
