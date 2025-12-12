@@ -1,0 +1,29 @@
+{
+  "name": "pdir-workflow",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Starter kit com documentação, templates e workflow PDIR para projetos AI Coding + Next.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "next dev -p 3022",
+    "build": "next build",
+    "start": "next start -p 3022",
+    "lint": "pnpm exec eslint .",
+    "lint:fix": "pnpm exec eslint . --fix",
+    "prettier:check": "pnpm exec prettier --check .",
+    "prettier:write": "pnpm exec prettier --write .",
+    "typecheck": "pnpm exec tsc --noEmit",
+    "check": "pnpm run lint && pnpm run prettier:check && pnpm run typecheck",
+    "test": "pnpm exec vitest run",
+    "test:watch": "pnpm exec vitest",
+    "db:push": "pnpm exec prisma db push",
+    "cron:sync-status": "pnpm dlx tsx scripts/sync-class-status.ts"
+  },
+  "keywords": [
+    "starter-kit",
+    "ai-coding"
+  ],
+  "author": "Maurus H",
+  "license": "MIT"
+}
