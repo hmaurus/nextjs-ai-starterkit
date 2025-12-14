@@ -30,7 +30,7 @@ Para o método PDIR completo, instale o plugin:
 
 ```bash
 # No Claude Code
-/plugin install hmaurus/pdir-workflow-plugin
+/plugin install pdir-workflow@hmaurus-masterclaude
 ```
 
 Comandos disponíveis após instalação: `/pdir-criar-prd`, `/pdir-listar-grupos`, `/pdir-criar-issue`, etc.

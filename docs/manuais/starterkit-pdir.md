@@ -63,7 +63,7 @@ O PDIR (Planejar, Dividir, Implementar, Revisar) é um método para desenvolver 
 ### Instalação do Plugin
 
 ```bash
-/plugin install hmaurus/pdir-workflow-plugin
+/plugin install pdir-workflow@hmaurus-masterclaude
 ```
 
 ### Fluxo PDIR
@@ -239,7 +239,7 @@ seu-projeto/
 
 ## Links
 
-- **Plugin PDIR:** https://github.com/hmaurus/pdir-workflow-plugin
+- **Plugin PDIR:** https://github.com/hmaurus/masterclaude
 - **Starterkit:** https://github.com/hmaurus/nextjs-ai-starterkit
 
 ---
