@@ -30,6 +30,7 @@ Para o método PDIR completo, instale o plugin:
 
 ```bash
 # No Claude Code
+/plugin marketplace add hmaurus/masterclaude
 /plugin install pdir-workflow@hmaurus-masterclaude
 ```
 

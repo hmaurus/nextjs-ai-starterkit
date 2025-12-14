@@ -63,6 +63,7 @@ O PDIR (Planejar, Dividir, Implementar, Revisar) é um método para desenvolver 
 ### Instalação do Plugin
 
 ```bash
+/plugin marketplace add hmaurus/masterclaude
 /plugin install pdir-workflow@hmaurus-masterclaude
 ```
 

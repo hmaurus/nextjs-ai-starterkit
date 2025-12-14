@@ -9,6 +9,6 @@ docs/projeto/
 └── tarefas/         # Gerados por /pdir-listar-tarefas
 ```
 
-**Requer plugin:** `/plugin install pdir-workflow@hmaurus-masterclaude`
+**Requer plugin:** `/plugin marketplace add hmaurus/masterclaude` → `/plugin install pdir-workflow@hmaurus-masterclaude`
 
 **Manual:** [starterkit-pdir.md](../manuais/starterkit-pdir.md)

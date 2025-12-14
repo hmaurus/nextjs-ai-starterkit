@@ -103,8 +103,9 @@ git push -u origin main
   - .env
 
 Próximos passos:
-1. Instalar plugin PDIR: /plugin install pdir-workflow@hmaurus-masterclaude
-2. Criar PRD: /pdir-criar-prd "[DESCRIÇÃO]"
-3. pnpm create next-app@latest . --typescript --tailwind --app
-4. /dev-start
+1. Adicionar marketplace: /plugin marketplace add hmaurus/masterclaude
+2. Instalar plugin PDIR: /plugin install pdir-workflow@hmaurus-masterclaude
+3. Criar PRD: /pdir-criar-prd "[DESCRIÇÃO]"
+4. pnpm create next-app@latest . --typescript --tailwind --app
+5. /dev-start
 ```
