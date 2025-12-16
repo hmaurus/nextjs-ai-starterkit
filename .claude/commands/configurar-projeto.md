@@ -72,7 +72,12 @@ Criar `.env` baseado em `.env.example` com portas calculadas:
 | Supabase Studio | 54323 | 54323 + (SLOT×10) |
 | Inbucket      | 54324 | 54324 + (SLOT×10) |
 
-#### 4.6. Commit e Push
+#### 4.6. Atualizar package.json
+
+Substituir o campo `name` pelo nome do projeto:
+- `"name": "nextjs-ai-starterkit"` → `"name": "[NOME]"`
+
+#### 4.7. Commit e Push
 
 ```bash
 git add -A
@@ -100,6 +105,7 @@ git push -u origin main
 📁 Arquivos atualizados:
   - CLAUDE.md
   - README.md
+  - package.json
   - .env
 
 Próximos passos:
