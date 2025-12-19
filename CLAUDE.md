@@ -92,6 +92,23 @@ Supabase migrations = source of truth
 - `pnpm check` → lint + prettier + typecheck
 - `pnpm lint:fix` / `pnpm prettier:write` → correção automática
 
+## Supabase
+
+- **CLI** para operações comuns:
+  `supabase db push`, `supabase functions deploy`, `supabase gen types typescript`, `supabase projects list`
+
+- **API direta** para o que a CLI não cobre:
+
+  ```bash
+  # Logs (service: api|postgres|auth|storage|realtime|edge-function)
+  curl -s "https://api.supabase.com/v1/projects/{project_id}/analytics/endpoints/logs.all?iso_timestamp_start=$(date -u -d '1 hour ago' +%Y-%m-%dT%H:%M:%SZ)" \
+    -H "Authorization: Bearer $SUPABASE_ACCESS_TOKEN"
+
+  # Advisors (type: security|performance)
+  curl -s "https://api.supabase.com/v1/projects/{project_id}/advisors/{type}" \
+    -H "Authorization: Bearer $SUPABASE_ACCESS_TOKEN"
+  ```
+
 ## Componentes
 
 - Shadcn/UI: estender componentes base com CVA; usar blocos shadcn completos quando possível
