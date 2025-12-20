@@ -1,6 +1,6 @@
 ---
 description: Analisa, planeja e implementa uma tarefa avulsa (fora do workflow PDIR)
-argument-hint: [descrição, @arquivo, ou imagem]
+argument-hint: [descrição, @arquivo, imagem ou issue do GitHub]
 ---
 
 # Planejar e Implementar
@@ -9,11 +9,7 @@ argument-hint: [descrição, @arquivo, ou imagem]
 - Verificar a solicitação do usuário
 - Planejar e Implementar a tarefa solicitada
 
-**Entrada:** `$ARGUMENTS` - texto, arquivo (`@path`), imagem, ou combinações
-
-**Quando usar:** tarefas avulsas, ajustes rápidos, prototipagem
-
-**Quando NÃO usar:** features com revisão, bugs documentados → prefira PDIR
+**Entrada:** `$ARGUMENTS` - texto, arquivo (`@path`), imagem, github issue ou combinações
 
 ## Exemplos
 
