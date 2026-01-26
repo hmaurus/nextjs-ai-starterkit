@@ -3,7 +3,7 @@
 ## Visão Geral do Projeto
 
 **Descrição**
-Um Starterkit e método (PDIR Workflow) para criar aplicativos web full-stack com Next.js
+Um Starterkit para criar aplicativos web full-stack em Next.js assistido por IA.
 
 ## Estrutura de Diretórios sugerida
 
@@ -30,20 +30,37 @@ messages/{pt-BR,en}.json, middleware.ts, env.ts
 **Config (raiz)**
 .env.example, .env.local, .eslintrc.json, .gitignore, .prettierrc, components.json, next.config.ts, package.json, pnpm-lock.yaml, postcss.config.mjs, README.md, tailwind.config.ts, tsconfig.json
 
-## Regras Gerais
+## Idioma
 
-- **Escrita** (doc, código, prompt etc): concisa e enxuta; omitir o que é nativo, óbvio ou redundante.
-- Idioma: código em inglês (vars, funcs, classes, entidades); textos ao usuário e comentários em pt-br
-- Docs e Dependências: Context7 MCP e Brave Search para docs e versões; priorizar para libs com atualizações frequentes ou quando houver dúvida
-- Em caso de falha: debugar profundamente antes de mudar de abordagem; nunca quebrar padrões definidos neste documento a menos que seja impossível
+- Código em inglês (vars, funcs, classes, entidades); Comunicação com o usuário e documentação em português brasileiro (pt-BR)
+
+## Dependências e Documentação
+
+**Princípio:** Preferir versões latest stable + documentação atualizada como contexto.
+
+**Workflow:**
+  1. Antes de usar qualquer API de lib externa, consultar Context7 MCP ou docs oficiais
+  2. Para libs de evolução rápida (Tailwind, Next.js, Prisma, React), SEMPRE verificar docs atuais
+  3. Se houver dúvida entre versões, perguntar ao usuário
+  4. Nunca assumir sintaxe/API sem verificação — o conhecimento do modelo pode estar desatualizado
+
+**Libs que exigem atenção especial:**
+- Next.js (App Router evolui rapidamente, v15→v16 teve mudanças significativas)
+- Tailwind CSS (v3 → v4 teve breaking changes significativos)
+- Prisma (v5 → v7 arquitetura completamente nova)
+- shadcn/ui (componentes e CLI atualizados constantemente)
+
+## Se algo der errado
+
+- Debugar profundamente antes de mudar de abordagem; nunca quebrar padrões definidos neste documento a menos que seja impossível
 
 ## Stack
 
 - Repositório com um único `package.json`
-- Next.js 15+ (App Router com Server Components como padrão e TypeScript 5+)
+- Next.js 16+ (App Router com Server Components como padrão e TypeScript 5.9+)
 - Tailwind CSS 4.1+ + Shadcn UI
-- TanStack Query v5 (servidor) + Zustand (cliente)
-- Supabase/PostgreSQL + Prisma 5+ (ORM)
+- TanStack Query v5 (servidor) + Zustand 5 (cliente)
+- Supabase/PostgreSQL + Prisma 7+ (ORM)
 - pnpm (nunca npm/yarn)
 
 ## DB workflow (database-first)
@@ -148,7 +165,7 @@ Supabase migrations = source of truth
 ## Design (UX/UI)
 
 **Estilo**
-- Toque moderno: animações sutis (Framer Motion), sombras suaves, cantos arredondados, cards com Animated Gradient Glow Border, glassmorphism etc.
+- Toque moderno, exemplo: animações sutis (Framer Motion), sombras suaves, cantos arredondados, cards com Animated Gradient Glow Border, glassmorphism.
 - Animações não devem quebrar fluxo principal
 
 **Obrigatórios**
