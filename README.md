@@ -5,7 +5,7 @@ Template para criar aplicativos fullstack Next.js com IA.
 ## Início Rápido
 
 ```bash
-git clone git@github.com:hmaurus/nextjs-ai-starterkit.git seu-projeto
+git clone https://github.com/hmaurus/nextjs-ai-starterkit.git seu-projeto
 cd seu-projeto
 /configurar-projeto
 ```
