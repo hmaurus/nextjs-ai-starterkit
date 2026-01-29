@@ -17,8 +17,13 @@
     "check": "pnpm run lint && pnpm run prettier:check && pnpm run typecheck",
     "test": "pnpm exec vitest run",
     "test:watch": "pnpm exec vitest",
-    "db:push": "pnpm exec prisma db push",
-    "cron:sync-status": "pnpm dlx tsx scripts/sync-class-status.ts"
+    "db:status": "pnpm dlx supabase db diff",
+    "db:reset": "pnpm dlx supabase db reset",
+    "db:pull": "pnpm dlx prisma db pull",
+    "db:generate": "pnpm dlx prisma generate",
+    "cron:sync-status": "pnpm dlx tsx scripts/sync-class-status.ts",
+    "test:e2e": "pnpm exec playwright test",
+    "test:coverage": "pnpm exec vitest run --coverage"
   },
   "keywords": [
     "starter-kit",

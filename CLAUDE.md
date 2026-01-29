@@ -57,11 +57,11 @@ messages/{pt-BR,en}.json, middleware.ts, env.ts
 ## Stack
 
 - Repositório com um único `package.json`
-- Next.js 16+ (App Router com Server Components como padrão e TypeScript 5.9+)
+- Next.js 16+ (App Router com Server Components como padrão e TypeScript 5.9+ com Strict mode)
 - Tailwind CSS 4.1+ + Shadcn UI
 - TanStack Query v5 (servidor) + Zustand 5 (cliente)
 - Supabase/PostgreSQL + Prisma 7+ (ORM)
-- pnpm (nunca npm/yarn)
+- pnpm
 
 ## DB workflow (database-first)
 
@@ -90,16 +90,13 @@ Supabase migrations = source of truth
 - Estado: Local → Context → URL → Server → Global (escalar só se necessário)
 
 **TypeScript**
-- Strict mode: no implicit `any`, strict null checks
 - Tipos de retorno: explícitos (exceto callbacks inline)
 - Payloads de API: inferência via Zod (`z.infer<typeof schema>`)
-- Evitar `any`: preferir `unknown` ou tipos específicos
 
 ## Regras de Implementação
 
 - Princípios: KISS/YAGNI - simples, eficiente e claro; construir o que agrega valor imediato; evitar abstrações desnecessárias, over-engineering ou camadas extras
-- Nomenclatura: kebab-case (arquivos), PascalCase (componentes), camelCase (vars/fns/prisma), UPPER_SNAKE_CASE (consts)
-- Docs/Comentários: código auto-documentado; comentários inline para clareza; detalhados para lógica complexa
+- Nomenclatura: kebab-case para arquivos
 - File header: path + propósito
 - Usar dados reais do BD (sem mocks/stubs)
 - Datas: formulários → strings → `createDateOnly`; armazenar/manipular via `toDateString` (YYYY-MM-DD); exibir na UI BR → DD/MM/YYYY
@@ -147,7 +144,6 @@ Supabase migrations = source of truth
 ## Testes
 
 **Princípios**
-- Testar comportamento do usuário, não detalhes de implementação
 - Simular uso real, não internos isolados
 - Dados variados e edge cases (evitar hard-coded)
 - Questionar requisitos/testes que pareçam inconsistentes
@@ -177,6 +173,7 @@ Supabase migrations = source of truth
 
 ## Segurança
 
+- Usar plugin `security-guidance` 
 - Validar todas as entradas com **Zod**
 - Proteger rotas via middleware
 - Nunca logar/expor dados sensíveis
