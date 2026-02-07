@@ -34,6 +34,10 @@ messages/{pt-BR,en}.json, middleware.ts, env.ts
 
 - Código em inglês (vars, funcs, classes, entidades); Comunicação com o usuário e documentação em português brasileiro (pt-BR)
 
+## Skills e Plugins
+
+- Antes de iniciar uma atividade, consulte skills e plugins disponíveis em todos escopos (global, project, user) e use-os se for útil. Ou use a skill find-skills se achar que a atividade requer um skill específico que não encontrou.
+
 ## Dependências e Documentação
 
 **Princípio:** Preferir versões latest stable + documentação atualizada como contexto.
