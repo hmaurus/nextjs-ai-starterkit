@@ -89,19 +89,12 @@ Supabase migrations = source of truth
 
 ## Gotchas
 
-- `redirect()`/`notFound()`/`forbidden()` lançam exceptions — mover para FORA do try/catch ou usar `unstable_rethrow()`
-- `error.tsx` DEVE ser `'use client'`
-- `'use client'` + `async function` component = INVÁLIDO (fetch no Server Component pai)
-- Props Server→Client: apenas serializáveis (sem `Date`, `Map`, funções — exceto Server Actions)
-- `params`/`searchParams` são `Promise<>` (Next.js 15+) — devem ser awaitados
-- Barrel imports: APENAS `@ui` (shadcn/ui); demais: imports diretos (tree-shaking)
-- Data waterfalls: `Promise.all()` para fetches independentes; Suspense para streaming
-- Server Actions: SEMPRE verificar auth (tratar como API route pública)
+- Para gotchas de Next.js (RSC, async APIs, error handling, hydration): consultar skill `next-best-practices`
+- Barrel imports: apenas via `@ui` (shadcn/ui); demais: imports diretos
 
 ## Erros
 
 - Server Actions retornam `{ success: true, data } | { success: false, error }`
-- `error.tsx` em cada route group + `global-error.tsx` na raiz
 - Zod validation: `error.flatten().fieldErrors` para forms
 
 ## Regras de Implementação
