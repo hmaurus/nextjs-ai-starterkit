@@ -92,8 +92,7 @@ Supabase migrations = source of truth
 
 ## Gotchas
 
-- Para gotchas de Next.js (RSC, async APIs, error handling, hydration): consultar skill `next-best-practices`
-- Barrel imports: apenas via `@ui` (shadcn/ui); demais: imports diretos
+- Para gotchas de Next.js (RSC, async APIs, error handling, hydration): consultar skill (se disponível) `next-best-practices`
 
 ## Erros
 
@@ -112,9 +111,6 @@ Supabase migrations = source of truth
 - `eslint .` + `prettier --check .` + `tsc --noEmit`
 - Fix: `eslint . --fix` / `prettier --write .`
 
-**Se algo der errado**
-- Debugar profundamente antes de mudar de abordagem; nunca quebrar padrões definidos neste documento a menos que seja impossível
-
 ## Componentes
 
 - Shadcn/UI: estender componentes base com CVA; usar blocos shadcn completos quando possível
@@ -123,34 +119,22 @@ Supabase migrations = source of truth
 
 **Fluxo:** 1) Verificar se já existe em `ui/` → 2) Buscar no registry shadcn → 3) Buscar registries extras → 4) Perguntar ao usuário antes de customizar/criar do zero
 
-**Customização:** DOM plano (≤3–4 níveis), utilitários mínimos, tags semânticas, sub-componentes menores
+**Customização:** DOM plano (≤3–4 níveis), tags semânticas, composição via sub-componentes
 
 ## Testes
 
-**Princípios**
-- Simular uso real, não internos isolados
-- Dados variados e edge cases (evitar hard-coded)
-- Questionar requisitos/testes que pareçam inconsistentes
-
-**Execução**
 - `vitest run` → unit/integration | `playwright test` → E2E | `vitest run --coverage` (mínimo 80%)
-- Pirâmide: priorizar unit → integration → E2E (proporção varia por contexto)
-
-**Stack:** Vitest + React Testing Library (unit/integration) | Playwright via MCP para debug visual (E2E)
+- Stack: Vitest + React Testing Library (unit/integration) | Playwright via MCP para debug visual (E2E)
 
 ## Design (UX/UI)
 
-- Estilo moderno: animações sutis (Framer Motion), sombras suaves, cantos arredondados; animações não devem quebrar fluxo
-- ≤3 cliques para objetivos principais; carregamento <3s (Lighthouse >90)
-- Acessibilidade: WCAG 2.2 AA, navegação por teclado, leitores de tela, aria, contraste
+- Animações: Framer Motion (sutis, não bloquear fluxo)
+- Performance: Lighthouse >90
+- Acessibilidade: WCAG 2.2 AA
 - Responsivo: mobile-first, alvos de toque 44px
-- Feedback: estados de loading, erros claros, confirmações
 
 ## Segurança
 
-- Plugin `security-guidance` (hook automático): alerta sobre XSS, eval, command injection ao editar arquivos
-- Validar todas as entradas com Zod; sanitizar outputs para prevenir XSS
-- Proteger rotas via middleware; nunca logar/expor dados sensíveis
 - Auth: Supabase Auth; middleware protege `/account/*`, `/admin/*`
 - Verificar role em Server Actions via `supabase.auth.getUser()` → `user_metadata.role`
 - Páginas de erro: `forbidden.tsx` (403), `unauthorized.tsx` (401)
