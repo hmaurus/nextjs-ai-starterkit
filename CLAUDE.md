@@ -102,13 +102,11 @@ Supabase migrations = source of truth
 
 ## Regras de Implementação
 
-- Princípios: KISS/YAGNI - simples, eficiente e claro; construir o que agrega valor imediato; evitar abstrações desnecessárias, over-engineering ou camadas extras
+- Princípios: KISS/YAGNI - evitar abstrações desnecessárias e over-engineering
 - Nomenclatura: Arquivos `kebab-case.ts`; Componentes `PascalCase`; funções/variáveis `camelCase`
-- Docs: JSDoc obrigatório (props, uso, acessibilidade)
+- Docs: Adicione JSDoc (descrição, @param, @returns) em toda função exportada que você criar ou modificar.
 - Adicionar no cabeçalho de cada arquivo uma breve descrição do propósito e uso
-- Usar dados reais do BD (sem mocks/stubs)
 - Datas: strings ISO (YYYY-MM-DD) + `date-fns` para manipulação; BD usa `DATE`/`TIMESTAMPTZ`; UI BR → DD/MM/YYYY
-- Após codificação: fazer checks, revisar requisitos e testar funcionalidades (ver seção Testes)
 
 **Validação (Checks)**
 - `eslint .` + `prettier --check .` + `tsc --noEmit`
