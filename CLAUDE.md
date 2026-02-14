@@ -68,7 +68,8 @@ Supabase migrations = source of truth
 4. `pnpm dlx prisma db pull`
 5. `pnpm dlx prisma generate`
 
-**PROIBIDO:** `prisma migrate dev`, `pnpm db:push`
+**PROIBIDO:** `prisma migrate dev`, `prisma db push`
+**Nota:** `supabase db push` (deploy de migrations para remoto) é permitido — não confundir com Prisma
 **MANTER VAZIO:** `prisma/migrations/`
 
 ## Padrões de Código
