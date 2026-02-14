@@ -71,6 +71,7 @@ Supabase migrations = source of truth
 **PROIBIDO:** `prisma migrate dev`, `prisma db push`
 **Nota:** `supabase db push` (deploy de migrations para remoto) é permitido — não confundir com Prisma
 **MANTER VAZIO:** `prisma/migrations/`
+- Supabase CLI e Management API (`api.supabase.com/v1/projects/`) disponíveis — consultar docs quando necessário
 
 ## Padrões de Código
 
@@ -139,18 +140,8 @@ Supabase migrations = source of truth
 - Verificar role em Server Actions via `supabase.auth.getUser()` → `user_metadata.role`
 - Páginas de erro: `forbidden.tsx` (403), `unauthorized.tsx` (401)
 
-## Git Workflow
-
-- Commits: Conventional Commits (`feat(scope): msg`)
-
-## Supabase
-
-- **CLI**: `supabase db push`, `supabase functions deploy`, `supabase gen types typescript`, `supabase projects list`
-- **API direta** para logs e advisors: consultar docs Supabase Management API (`api.supabase.com/v1/projects/`)
-
-## Skills/ Plugins e Referências
+## Skills e Plugins (se disponíveis)
 
 - Para padrões Next.js/React detalhados: consultar skills `next-best-practices` e `vercel-react-best-practices`
-- Antes de usar API de lib externa: consultar Context7 MCP ou docs oficiais
 - Para tarefas de design UI/UX use o plugin/ skill `frontend-design`
 - Usar skill `find-skills` para descobrir skills úteis para a atividade atual
