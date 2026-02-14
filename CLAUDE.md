@@ -47,7 +47,6 @@ prisma/schema.prisma, supabase/{migrations,seed.sql,config.toml}, public/{favico
 1. Antes de usar qualquer API de lib externa, consultar Context7 MCP ou docs oficiais
 2. Para libs de evolução rápida (Tailwind, Next.js, Prisma, React, shadcn/ui), SEMPRE verificar docs atuais
 3. Se houver dúvida entre versões, perguntar ao usuário
-4. Nunca assumir sintaxe/API sem verificação — o conhecimento do modelo pode estar desatualizado
 
 ## Ambiente e Configuração
 
