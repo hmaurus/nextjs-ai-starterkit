@@ -38,7 +38,7 @@ prisma/schema.prisma, supabase/{migrations,seed.sql,config.toml}, public/{favico
 **src/components/** ui/, shared/, admin/, account/, public/
 **src/lib/** actions/, queries/, services/, hooks/, i18n/, types/, validators/, config/, db.ts, utils.ts
 **src/** messages/{pt-BR,en}.json, middleware.ts, env.ts
-**Config (raiz):** .env.example, .env.local, .eslintrc.json, .gitignore, .prettierrc, components.json, next.config.ts, package.json, pnpm-lock.yaml, README.md, tsconfig.json
+**Config (raiz):** .env.example, .env.local, eslint.config.mjs, .gitignore, .prettierrc, components.json, next.config.ts, package.json, pnpm-lock.yaml, README.md, tsconfig.json
 
 ## Dependências e Documentação
 
@@ -62,11 +62,11 @@ prisma/schema.prisma, supabase/{migrations,seed.sql,config.toml}, public/{favico
 
 Supabase migrations = source of truth
 
-1. `pnpm db:status`
+1. `supabase db diff`
 2. Criar SQL em `supabase/migrations/`
-3. `pnpm dlx supabase db reset`
-4. `pnpm dlx prisma db pull`
-5. `pnpm dlx prisma generate`
+3. `supabase db reset`
+4. `prisma db pull`
+5. `prisma generate`
 
 **PROIBIDO:** `prisma migrate dev`, `prisma db push`
 **Nota:** `supabase db push` (deploy de migrations para remoto) é permitido — não confundir com Prisma
@@ -111,8 +111,8 @@ Supabase migrations = source of truth
 - Após codificação: fazer checks, revisar requisitos e testar funcionalidades (ver seção Testes)
 
 **Validação (Checks)**
-- `pnpm check` → lint + prettier + typecheck
-- `pnpm lint:fix` / `pnpm prettier:write` → correção automática
+- `eslint .` + `prettier --check .` + `tsc --noEmit`
+- Fix: `eslint . --fix` / `prettier --write .`
 
 **Se algo der errado**
 - Debugar profundamente antes de mudar de abordagem; nunca quebrar padrões definidos neste documento a menos que seja impossível
@@ -135,7 +135,7 @@ Supabase migrations = source of truth
 - Questionar requisitos/testes que pareçam inconsistentes
 
 **Execução**
-- `pnpm test` → unit/integration | `pnpm test:e2e` → end-to-end | `pnpm test:coverage` (mínimo 80%)
+- `vitest run` → unit/integration | `playwright test` → E2E | `vitest run --coverage` (mínimo 80%)
 - Pirâmide: priorizar unit → integration → E2E (proporção varia por contexto)
 
 **Stack:** Vitest + React Testing Library (unit/integration) | Playwright via MCP para debug visual (E2E)
@@ -150,7 +150,7 @@ Supabase migrations = source of truth
 
 ## Segurança
 
-- Se disponível, usar skill `security-guidance` para auditorias
+- Plugin `security-guidance` (hook automático): alerta sobre XSS, eval, command injection ao editar arquivos
 - Validar todas as entradas com Zod; sanitizar outputs para prevenir XSS
 - Proteger rotas via middleware; nunca logar/expor dados sensíveis
 - Auth: Supabase Auth; middleware protege `/account/*`, `/admin/*`
@@ -163,7 +163,7 @@ Supabase migrations = source of truth
 
 ## Supabase
 
-- **CLI** para operações comuns: `supabase db push`, `supabase functions deploy`, `supabase gen types typescript`, `supabase projects list`
+- **CLI**: `supabase db push`, `supabase functions deploy`, `supabase gen types typescript`, `supabase projects list`
 - **API direta** para logs e advisors: consultar docs Supabase Management API (`api.supabase.com/v1/projects/`)
 
 ## Skills/ Plugins e Referências
