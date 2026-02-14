@@ -38,7 +38,7 @@ prisma/schema.prisma, supabase/{migrations,seed.sql,config.toml}, public/{favico
 **src/components/** ui/, shared/, admin/, account/, public/
 **src/lib/** actions/, queries/, services/, hooks/, i18n/, types/, validators/, config/, db.ts, utils.ts
 **src/** messages/{pt-BR,en}.json, middleware.ts, env.ts
-**Config (raiz):** .env.example, .env.local, .eslintrc.json, .gitignore, .prettierrc, components.json, next.config.ts, package.json, pnpm-lock.yaml, postcss.config.mjs, README.md, tailwind.config.ts, tsconfig.json
+**Config (raiz):** .env.example, .env.local, .eslintrc.json, .gitignore, .prettierrc, components.json, next.config.ts, package.json, pnpm-lock.yaml, README.md, tsconfig.json
 
 ## Dependências e Documentação
 
@@ -52,7 +52,9 @@ prisma/schema.prisma, supabase/{migrations,seed.sql,config.toml}, public/{favico
 ## Ambiente e Configuração
 
 **Obrigatórias:** `DATABASE_URL`, `DIRECT_URL`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`
-**Opcionais:** `NEXT_PUBLIC_SITE_URL`, `APP_SLOT` (port offset: porta = base + SLOT × 10)
+**Opcionais:** `NEXT_PUBLIC_SITE_URL`, `APP_SLOT`
+- `APP_SLOT` define offset de portas: `porta = base + SLOT × 10` — ao mudar SLOT, ajustar portas no `.env` e no `package.json` (dev/start)
+- Bases: Next=3000, Prisma Studio=5555, Supabase API=54321, DB=54322, Studio=54323, Inbucket=54324
 - `NEXT_PUBLIC_*` = exposto ao cliente; sem prefixo = servidor only
 - Validar em `src/env.ts` via Zod; nunca commitar `.env` (apenas `.env.example`)
 

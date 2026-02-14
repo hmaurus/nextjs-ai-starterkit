@@ -6,9 +6,9 @@
   "description": "Starter kit com documentação, templates e workflow PDIR para projetos AI Coding + Next.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "next dev -p 3022",
+    "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start -p 3022",
+    "start": "next start -p 3000",
     "lint": "pnpm exec eslint .",
     "lint:fix": "pnpm exec eslint . --fix",
     "prettier:check": "pnpm exec prettier --check .",
@@ -21,7 +21,6 @@
     "db:reset": "pnpm dlx supabase db reset",
     "db:pull": "pnpm dlx prisma db pull",
     "db:generate": "pnpm dlx prisma generate",
-    "cron:sync-status": "pnpm dlx tsx scripts/sync-class-status.ts",
     "test:e2e": "pnpm exec playwright test",
     "test:coverage": "pnpm exec vitest run --coverage"
   },
