@@ -139,8 +139,8 @@ Supabase migrations = source of truth
 - Verificar role em Server Actions via `supabase.auth.getUser()` → `user_metadata.role`
 - Páginas de erro: `forbidden.tsx` (403), `unauthorized.tsx` (401)
 
-## Skills e Plugins (se disponíveis)
+## Consultar Skills ou Plugins (se disponíveis)
 
-- Para padrões Next.js/React detalhados: consultar skills `next-best-practices` e `vercel-react-best-practices`
-- Para tarefas de design UI/UX use o plugin/ skill `frontend-design`
-- Usar skill `find-skills` para descobrir skills úteis para a atividade atual
+- Para padrões Next.js e React detalhados: skills `next-best-practices` e `vercel-react-best-practices`
+- Para tarefas de design UI/UX: Plugin `frontend-design`
+- Para descobrir skills úteis para a atividade: skill `find-skills`
