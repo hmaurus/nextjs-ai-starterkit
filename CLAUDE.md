@@ -89,6 +89,7 @@ Supabase migrations = source of truth
 **TypeScript**
 - Tipos de retorno: explícitos (exceto callbacks inline)
 - Payloads de API: inferência via Zod (`z.infer<typeof schema>`)
+- Performance e otimização React/Next.js: consultar skill (se disponível) `vercel-react-best-practices`
 
 ## Gotchas
 
@@ -132,15 +133,10 @@ Supabase migrations = source of truth
 - Performance: Lighthouse >90
 - Acessibilidade: WCAG 2.2 AA
 - Responsivo: mobile-first, alvos de toque 44px
+- Criar interfaces e componentes visuais: consultar skill (se disponível) `frontend-design`
 
 ## Segurança
 
 - Auth: Supabase Auth; middleware protege `/account/*`, `/admin/*`
 - Verificar role em Server Actions via `supabase.auth.getUser()` → `user_metadata.role`
 - Páginas de erro: `forbidden.tsx` (403), `unauthorized.tsx` (401)
-
-## Consultar Skills ou Plugins (se disponíveis)
-
-- Para padrões Next.js e React detalhados: skills `next-best-practices` e `vercel-react-best-practices`
-- Para tarefas de design UI/UX: Plugin `frontend-design`
-- Para descobrir skills úteis para a atividade: skill `find-skills`
