@@ -49,9 +49,31 @@ gh repo create "[NOME]" --private --description "[DESCRIÇÃO]" --source=. --rem
 
 Capturar URL: `gh repo view --json url -q .url`
 
-#### 4.3. Atualizar CLAUDE.md
+#### 4.3. Configurar CLAUDE.md
 
-Substituir:
+Usar `AskUserQuestion` para perguntar ao usuário qual modelo de CLAUDE.md deseja:
+
+**Opção 1 — Completo (padrão):**
+Manter o CLAUDE.md atual (autossuficiente, tudo em um arquivo).
+- Aplicar substituições de nome/descrição no CLAUDE.md
+- Apagar `docs/claude-md/`
+
+**Opção 2 — Separar global + projeto:**
+Usar regras genéricas como global e manter apenas regras específicas no projeto.
+- Substituir `/CLAUDE.md` pelo conteúdo de `docs/claude-md/CLAUDE-next.md`
+- Aplicar substituições de nome/descrição no novo CLAUDE.md
+- Se `~/.claude/CLAUDE.md` já existir, fazer backup para `~/.claude/CLAUDE.md.bak` e avisar o usuário
+- Copiar `docs/claude-md/CLAUDE-global.md` para `~/.claude/CLAUDE.md`
+- Apagar `docs/claude-md/`
+
+**Opção 3 — Só projeto (já tenho global):**
+Já possui `~/.claude/CLAUDE.md` próprio e quer apenas o CLAUDE.md enxuto do projeto.
+- Verificar que `~/.claude/CLAUDE.md` existe; se não existir, avisar e sugerir opção 2
+- Substituir `/CLAUDE.md` pelo conteúdo de `docs/claude-md/CLAUDE-next.md`
+- Aplicar substituições de nome/descrição no novo CLAUDE.md
+- Apagar `docs/claude-md/`
+
+**Substituições (todas as opções):**
 - `nome-do-projeto/` → `[NOME]/`
 - Descrição do Starterkit → `[DESCRIÇÃO]`
 
@@ -103,10 +125,11 @@ git push -u origin main
 🔗 GitHub: [URL] (privado)
 
 📁 Arquivos atualizados:
-  - CLAUDE.md
+  - CLAUDE.md (+ ~/.claude/CLAUDE.md se opção 2)
   - README.md
   - package.json
   - .env
+  - docs/claude-md/ (removido)
 
 Próximos passos:
 1. Adicionar marketplace: /plugin marketplace add hmaurus/masterclaude
