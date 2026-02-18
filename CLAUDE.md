@@ -10,7 +10,7 @@ Um Starterkit para criar aplicativos web full-stack em Next.js assistido por IA.
 
 ## Idioma
 
-- Código em inglês (vars, funcs, classes, entidades); Comunicação com o usuário e documentação em pt-BR
+- Código em inglês (vars, funcs, classes, entidades); Comunicação com o usuário e documentação em pt-BR (commits, gitgub issues, mensagens de erro, comentários etc)
 
 ## Stack
 

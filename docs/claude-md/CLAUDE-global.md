@@ -2,7 +2,7 @@
 
 ## Idioma
 
-- Código em inglês (vars, funcs, classes, entidades); Comunicação com o usuário e documentação em pt-BR
+- Código em inglês (vars, funcs, classes, entidades); Comunicação com o usuário e documentação em pt-BR (commits, gitgub issues, mensagens de erro, comentários etc)
 
 ## Dependências e Documentação
 
