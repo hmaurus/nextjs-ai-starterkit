@@ -24,15 +24,6 @@
 - `eslint .` + `prettier --check .` + `tsc --noEmit`
 - Fix: `eslint . --fix` / `prettier --write .`
 
-## Erros
-
-- Server Actions retornam `{ success: true, data } | { success: false, error }`
-- Zod validation: `error.flatten().fieldErrors` para forms
-
-## Datas
-
-- Strings ISO (YYYY-MM-DD) + lib de datas para manipulação; BD usa `DATE`/`TIMESTAMPTZ`; UI BR → DD/MM/YYYY
-
 ## Testes
 
 - Unit/integration primeiro, E2E para fluxos críticos
@@ -48,6 +39,4 @@
 ## Segurança
 
 - Nunca commitar `.env` (apenas `.env.example`)
-- `NEXT_PUBLIC_*` = exposto ao cliente; sem prefixo = servidor only
 - Validar variáveis de ambiente via Zod
-- Páginas de erro: `forbidden.tsx` (403), `unauthorized.tsx` (401)
