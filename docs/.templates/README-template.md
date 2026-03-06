@@ -29,12 +29,12 @@ Portas: ver `.env.example`
 ## Workflow PDIR
 
 ```bash
-/pdir:pdir-criar-issue [descrição]      # Cria Issue
-/pdir:pdir-implementar-tarefa [issue]   # Implementa
-/pdir:pdir-commit                       # Commit + push
-/pdir:pdir-draft-pr                     # Cria Draft PR
-/pdir:pdir-ready-pr [pr]                # Marca PR pronto
-/pdir:pdir-merge-tarefa [pr]            # Merge + limpeza
+/pdir-dividir-em-tarefas docs/projeto/PRD.md   # Divide PRD em tarefas
+/pdir-criar-issue [descrição ou arquivo#seção] # Cria Issue no GitHub
+/pdir-implementar-tarefa-com-branch [issue]    # Implementa com branch
+/pdir-commit                                   # Commit + push
+/pdir-criar-pr                                 # Cria PR vinculado a Issue
+/pdir-merge-tarefa                             # Merge + limpeza
 ```
 
 ## Testes

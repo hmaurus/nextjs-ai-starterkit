@@ -1,6 +1,6 @@
-# Next.js AI Starterkit + Método PDIR
+# Next.js AI Starterkit + Metodo PDIR
 
-Manual do starter kit e método PDIR para criar aplicativos fullstack Next.js com IA.
+Manual do starter kit e metodo PDIR para criar aplicativos fullstack Next.js com IA.
 
 **Autor:** Maurus Henriques - maurus@maurus.com.br
 
@@ -8,27 +8,27 @@ Manual do starter kit e método PDIR para criar aplicativos fullstack Next.js co
 
 ## Parte 1: Starter Kit
 
-### O que é este kit?
+### O que e este kit?
 
 Template que fornece:
 
-- Configuração do Claude Code (comandos + MCP servers)
+- Configuracao do Claude Code (comandos + MCP servers)
 - CLAUDE.md com regras para projetos Next.js
 - Comandos de desenvolvimento (`/dev-start`, `/dev-stop`)
-- **NÃO** inclui Next.js (você instala conforme necessidade)
+- **NAO** inclui Next.js (voce instala conforme necessidade)
 
-### Pré-requisitos
+### Pre-requisitos
 
 - Node.js 20+ | pnpm | Docker (opcional) | Git | GitHub CLI (`gh`) | Claude Code CLI
 
-### Setup Rápido
+### Setup Rapido
 
 ```bash
 # 1. Clonar
 git clone git@github.com:hmaurus/nextjs-ai-starterkit.git seu-projeto
 cd seu-projeto
 
-# 2. Autenticar GitHub CLI (se ainda não fez)
+# 2. Autenticar GitHub CLI (se ainda nao fez)
 gh auth login
 
 # 3. Abrir Claude Code
@@ -39,12 +39,12 @@ claude .
 ```
 
 O wizard:
-- Cria repositório GitHub privado
+- Cria repositorio GitHub privado
 - Atualiza CLAUDE.md com dados do projeto
 - Gera .env com portas baseadas no APP_SLOT
 - Substitui README.md
 
-### Após Configuração
+### Apos Configuracao
 
 ```bash
 # Instalar Next.js
@@ -58,9 +58,9 @@ pnpm create next-app@latest . --typescript --tailwind --app
 
 ## Parte 2: Plugin PDIR (Opcional)
 
-O PDIR (Planejar, Dividir, Implementar, Revisar) é um método para desenvolver software de forma estruturada usando IA.
+O PDIR (Planejar, Dividir, Implementar, Revisar) e um metodo para desenvolver software de forma estruturada usando IA.
 
-### Instalação do Plugin
+### Instalacao do Plugin
 
 ```bash
 /plugin marketplace add hmaurus/masterclaude
@@ -70,121 +70,112 @@ O PDIR (Planejar, Dividir, Implementar, Revisar) é um método para desenvolver 
 ### Fluxo PDIR
 
 ```
-PRD.md → Grupos → Tarefas → Issue → Implementar → Commit → PR → Merge
+PRD.md -> Tarefas -> Issue -> Implementar -> Commit -> PR -> Merge
 ```
 
 ### Fase 0: Criar o PRD
 
-```bash
-/pdir-criar-prd "Descrição do seu projeto"
-```
+O plugin foca no ciclo a partir da divisao em tarefas. Para criar o PRD (`docs/projeto/PRD.md`), use uma destas abordagens:
 
-**Resultado:** `docs/projeto/PRD.md`
+- **`/doc-coauthoring`** -- co-autoria interativa com entrevista, refinamento e teste de clareza (requer skill `doc-coauthoring`)
+- **`/brainstorming`** -- exploracao criativa de requisitos antes de estruturar o PRD
+- **Conversa direta** -- descreva o projeto ao Claude e peca para criar o PRD em `docs/projeto/PRD.md`
 
-### Fase 1: Dividir o PRD em Grupos
-
-```bash
-/pdir-listar-grupos PRD.md subgrupos
-```
-
-**Resultado:** `docs/projeto/grupos/lista-grupos-PRD.md`
-
-Estrutura hierárquica com grupos e subgrupos:
-
-```markdown
-## Grupo: Autenticação
-### Subgrupo: Login
-### Subgrupo: Registro
-
-## Grupo: Dashboard
-### Subgrupo: Visão Geral
-```
-
-**Dica:** Use `grupos` em vez de `subgrupos` para projetos menores.
-
-### Fase 2: Gerar Tarefas por Grupo
-
-Para **cada** grupo ou subgrupo:
+### Fase 1: Dividir em Tarefas
 
 ```bash
-/pdir-listar-tarefas grupos/lista-grupos-PRD.md "Subgrupo: Login"
+# PRD completo
+/pdir-dividir-em-tarefas docs/projeto/PRD.md
+
+# Secao especifica do PRD
+/pdir-dividir-em-tarefas docs/projeto/PRD.md#Fase 1 - Fundacao
+
+# Descricao livre (sem PRD)
+/pdir-dividir-em-tarefas Sistema de notificacoes com email e SMS
 ```
 
-**Resultado:** `docs/projeto/tarefas/lista-tarefas-login.md`
+**Resultado:** `docs/projeto/tarefas/lista-tarefas-[nome].md`
 
-### Fase 3: Implementar Tarefas (Ciclo)
+Cada tarefa e atomica, testavel e dimensionada para uma sessao de AI Coding (~1-8 arquivos).
+
+### Fase 2: Implementar Tarefas (Ciclo)
 
 Para **cada** tarefa da lista:
 
 ```bash
-# 1. Criar Issue
-/pdir-criar-issue feat(auth): criar página de login
+# 1. Criar Issue (a partir do arquivo de tarefas)
+/pdir-criar-issue docs/projeto/tarefas/lista-tarefas-setup.md#configurar eslint
+
+# 1b. Ou criar Issue com descricao livre
+/pdir-criar-issue adicionar validacao de email no cadastro
 
 # 2. Implementar (cria branch feat/42-...)
-/pdir-implementar-tarefa 42
+/pdir-implementar-tarefa-com-branch 42
 
-# 3. Commitar (pode executar várias vezes)
+# 3. Commitar (pode executar varias vezes)
 /pdir-commit
 
-# 4. Criar Draft PR
-/pdir-draft-pr
+# 4. Criar PR vinculado a Issue
+/pdir-criar-pr
 
-# 5. Marcar pronto e fazer merge
-/pdir-ready-pr
+# 5. Fazer merge quando aprovado
 /pdir-merge-tarefa
 ```
 
 **Resultado:** PR merged, branch deletada, Issue fechada.
 
+**Variante sem branch:** use `/pdir-implementar-tarefa 42` para implementar direto na branch atual (util para tarefas menores ou quando ja esta numa branch de feature).
+
+### Entre Tarefas
+
+```bash
+# Sugere proxima tarefa com base no contexto
+/pdir-proxima-tarefa
+```
+
+Analisa o PRD, Issues abertas/fechadas e o que foi feito na sessao atual para sugerir a proxima tarefa logica.
+
 ### Resumo dos Comandos PDIR
 
 | Fase | Comando | O que faz |
 |------|---------|-----------|
-| PRD | `/pdir-criar-prd` | descrição → PRD.md |
-| Dividir | `/pdir-listar-grupos` | PRD → grupos/subgrupos |
-| Tarefas | `/pdir-listar-tarefas` | grupo → lista de tarefas |
-| Issue | `/pdir-criar-issue` | tarefa → Issue GitHub |
-| Implementar | `/pdir-implementar-tarefa` | Issue → branch + código |
-| Commit | `/pdir-commit` | commit + push |
-| PR | `/pdir-draft-pr` | cria Draft PR |
-| Ready | `/pdir-ready-pr` | marca PR pronto |
-| Merge | `/pdir-merge-tarefa` | merge + limpeza |
+| Dividir | `/pdir-dividir-em-tarefas` | PRD ou descricao -> lista de tarefas |
+| Issue | `/pdir-criar-issue` | tarefa -> Issue GitHub (com labels e milestone) |
+| Sugestao | `/pdir-proxima-tarefa` | sugere proxima tarefa com base no contexto |
+| Implementar | `/pdir-implementar-tarefa-com-branch` | Issue -> branch + codigo |
+| Implementar | `/pdir-implementar-tarefa` | Issue -> codigo (branch atual) |
+| Commit | `/pdir-commit` | commit + push (Conventional Commits) |
+| PR | `/pdir-criar-pr` | cria PR vinculado a Issue |
+| Merge | `/pdir-merge-tarefa` | squash merge + limpeza |
 
 ### Fluxo Visual
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    /pdir-criar-prd                          │
+│            Criar PRD em docs/projeto/PRD.md                 │
+│    (conversa direta, /doc-coauthoring ou /brainstorming)    │
 └─────────────────────────┬───────────────────────────────────┘
                           ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                        PRD.md                               │
 └─────────────────────────┬───────────────────────────────────┘
-                          │ /pdir-listar-grupos
+                          │ /pdir-dividir-em-tarefas
                           ▼
 ┌─────────────────────────────────────────────────────────────┐
-│              lista-grupos-PRD.md                            │
-│  ├── Grupo: Auth                                            │
-│  │   ├── Subgrupo: Login                                    │
-│  │   └── Subgrupo: Registro                                 │
-│  └── Grupo: Dashboard                                       │
-└─────────────────────────┬───────────────────────────────────┘
-                          │ /pdir-listar-tarefas (por subgrupo)
-                          ▼
-┌─────────────────────────────────────────────────────────────┐
-│              lista-tarefas-login.md                         │
-│  - feat(auth): criar página de login                        │
+│         lista-tarefas-[nome].md                             │
+│  - feat(auth): criar pagina de login                        │
 │  - feat(auth): validar credenciais                          │
 └─────────────────────────┬───────────────────────────────────┘
                           │ Para cada tarefa:
                           ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  /pdir-criar-issue                                          │
-│  /pdir-implementar-tarefa [issue]                           │
+│  /pdir-implementar-tarefa-com-branch [issue]                │
 │  /pdir-commit (1 ou mais vezes)                             │
-│  /pdir-draft-pr                                             │
-│  /pdir-ready-pr                                             │
+│  /pdir-criar-pr                                             │
 │  /pdir-merge-tarefa                                         │
+│                                                             │
+│  /pdir-proxima-tarefa (entre tarefas)                       │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -192,12 +183,12 @@ Para **cada** tarefa da lista:
 
 ## Parte 3: Comandos do Starterkit
 
-| Comando | Função |
+| Comando | Funcao |
 |---------|--------|
 | `/configurar-projeto` | Wizard inicial (cria repo, .env) |
 | `/dev-start` | Inicia Next.js + Prisma Studio |
-| `/dev-stop` | Para serviços |
-| `/dev-restart` | Reinicia serviços |
+| `/dev-stop` | Para servicos |
+| `/dev-restart` | Reinicia servicos |
 | `/planejar-e-implementar` | Tarefa avulsa (fora do PDIR) |
 
 Portas: configuradas via APP_SLOT no `.env`
@@ -210,7 +201,7 @@ Portas: configuradas via APP_SLOT no `.env`
 seu-projeto/
 ├── CLAUDE.md                    # Regras do projeto
 ├── README.md                    # README do seu projeto
-├── .env                         # Variáveis de ambiente (gerado)
+├── .env                         # Variaveis de ambiente (gerado)
 ├── .claude/commands/            # Comandos do starterkit
 │   ├── configurar-projeto.md
 │   ├── planejar-e-implementar.md
@@ -221,20 +212,20 @@ seu-projeto/
 │   │   └── components.json
 │   ├── manuais/                 # Este manual
 │   └── projeto/                 # Arquivos gerados pelo PDIR
-│       ├── PRD.md               # Plano geral (via plugin)
-│       ├── grupos/              # Lista de grupos (gerados)
+│       ├── PRD.md               # Plano geral (manual ou assistido)
 │       └── tarefas/             # Lista de tarefas (gerados)
-└── src/                         # Código (após instalar Next.js)
+└── src/                         # Codigo (apos instalar Next.js)
 ```
 
 ---
 
 ## Dicas
 
-- **Granularidade:** Uma tarefa = uma funcionalidade testável isoladamente
-- **Commits:** Commite frequentemente, não espere terminar tudo
-- **PRD primeiro:** Invista tempo no PRD antes de começar a dividir
-- **Sequência:** Respeite dependências entre tarefas ao implementar
+- **Granularidade:** Uma tarefa = uma funcionalidade testavel isoladamente
+- **Commits:** Commite frequentemente, nao espere terminar tudo
+- **PRD primeiro:** Invista tempo no PRD antes de comecar a dividir
+- **Sequencia:** Respeite dependencias entre tarefas ao implementar
+- **Contexto limpo:** Execute `/clear` entre tarefas para manter o contexto enxuto
 
 ---
 

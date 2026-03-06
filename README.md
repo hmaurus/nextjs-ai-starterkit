@@ -34,7 +34,7 @@ Para o método PDIR completo, instale o plugin:
 /plugin install pdir-workflow@hmaurus-masterclaude
 ```
 
-Comandos disponíveis após instalação: `/pdir-criar-prd`, `/pdir-listar-grupos`, `/pdir-criar-issue`, etc.
+Comandos disponíveis após instalação: `/pdir-dividir-em-tarefas`, `/pdir-criar-issue`, `/pdir-implementar-tarefa-com-branch`, `/pdir-commit`, `/pdir-criar-pr`, `/pdir-merge-tarefa`, etc.
 
 ---
 
