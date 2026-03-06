@@ -12,7 +12,7 @@ Manual do starter kit e metodo PDIR para criar aplicativos fullstack Next.js com
 
 Template que fornece:
 
-- Configuracao do Claude Code (comandos + MCP servers)
+- Configuracao do Claude Code
 - CLAUDE.md com regras para projetos Next.js
 - Comandos de desenvolvimento (`/dev-start`, `/dev-stop`)
 - **NAO** inclui Next.js (voce instala conforme necessidade)
